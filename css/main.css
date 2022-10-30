@@ -158,6 +158,11 @@ ul {
   right: 230px;
 }
 
+.xBtn{
+  width: 10px;
+  height: 10px;
+}
+
 .galleryImg {
   width: 200px;
   height: 200px;

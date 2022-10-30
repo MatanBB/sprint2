@@ -253,7 +253,7 @@ function renderSavedMemes() {
   console.log(SavedMemes)
   let str = ''
   for (let i = 0; i < SavedMemes.length; i++) {
-    str += `<img src="${SavedMemes[i].url}" width=200 height=200  onclick="onRenderSaved(${i})"> `
+    str += `<img src="${SavedMemes[i].url}" width=200 height=200  onclick="onRenderSaved(${i})"> <button class='xBtn'>X</button>`
   }
   savedMemeEl.innerHTML = str
 }
