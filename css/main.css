@@ -159,8 +159,10 @@ ul {
 }
 
 .xBtn{
-  width: 10px;
-  height: 10px;
+  width: fit-content;
+  height: fit-content;
+  position: relative;
+  bottom: 208px;
 }
 
 .galleryImg {

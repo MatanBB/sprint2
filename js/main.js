@@ -253,9 +253,20 @@ function renderSavedMemes() {
   console.log(SavedMemes)
   let str = ''
   for (let i = 0; i < SavedMemes.length; i++) {
-    str += `<img src="${SavedMemes[i].url}" width=200 height=200  onclick="onRenderSaved(${i})"> <button class='xBtn'>X</button>`
+    str += `<div>
+    <img src="${SavedMemes[i].url}" width=200 height=200  onclick="onRenderSaved(${i})">
+    <button onclick="onDeleteSaved(${i})" class="xBtn">X</button>
+    </div>`
   }
   savedMemeEl.innerHTML = str
+}
+
+function onDeleteSaved(id){
+  let SavedMemes = loadFromStorage('SavedMemes')
+  let SpecificMeme = SavedMemes[id]
+  SavedMemes.splice(id,1)
+  saveToStorage('SavedMemes',SavedMemes)
+  OnOpenMemes()
 }
 
 function onRenderSaved(id) {
