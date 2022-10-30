@@ -2,6 +2,7 @@
 var gMeme = {
   selectedImgId: 5,
   selectedLineIdx: 0,
+  url:'',
   lines: [{ txt: 'I sometimes eat Falafel', size: 20, align: 'left', color: 'white', strokeColor: 'black', pos: { x: 100, y: 50 } },
   { txt: 'I want to go out swimming', size: 20, align: 'left', color: 'white', strokeColor: 'black', pos: { x: 100, y: 450 } }],
 }

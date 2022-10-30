@@ -54,9 +54,9 @@ function addTouchListeners() {
 
 function onDown(ev) {
   gSelectedPiece = getClickedText(ev)
-  gStartPos = gSelectedPiece.pos
+  // gStartPos = gSelectedPiece.pos
   console.log(gSelectedPiece)
-  gStartPos = {x:ev.offsetX,y:ev.offsetY}
+  gStartPos = { x: ev.offsetX, y: ev.offsetY }
   console.log(gStartPos)
 }
 
@@ -65,8 +65,8 @@ function onMove(ev) {
   for (let i = 0; i < gMeme.lines.length; i++) {
     let line = gMeme.lines[i]
     if (gSelectedPiece != null && line.id === gSelectedPiece.id) {
-      line.pos.x = ev.offsetX 
-      line.pos.y = ev.offsetY 
+      line.pos.x = ev.offsetX
+      line.pos.y = ev.offsetY
       gMeme.selectedLineIdx = i
       document.querySelector('#textInput').placeholder = line.txt
     }
@@ -85,14 +85,6 @@ function getClickedText(loc) {
       loc.offsetY < gMeme.lines[i].pos.y && loc.offsetY > gMeme.lines[i].pos.y - gMeme.lines[i].size) return gMeme.lines[i]
   }
   return null
-}
-
-function isCircleClicked(clickedPos) {
-  const { pos } = gCircle
-  // Calc the distance between two dots
-  const distance = Math.sqrt((pos.x - clickedPos.x) ** 2 + (pos.y - clickedPos.y) ** 2)
-  //If its smaller then the radius of the circle we are inside
-  return distance <= gCircle.size
 }
 
 function getMemesToDisplay() {
@@ -174,8 +166,8 @@ function setLineColor(val) {
   renderMeme(gMeme.selectedImgId)
 }
 
-function onRemoveLine(){
-  gMeme.lines.splice(gMeme.selectedLineIdx,1)
+function onRemoveLine() {
+  gMeme.lines.splice(gMeme.selectedLineIdx, 1)
   renderMeme(gMeme.selectedImgId)
 }
 
@@ -258,25 +250,23 @@ function onSaveMeme() {
 function renderSavedMemes() {
   let savedMemeEl = document.querySelector('.savedMemesContainer')
   let SavedMemes = loadFromStorage('SavedMemes')
+  console.log(SavedMemes)
   let str = ''
-  SavedMemes.forEach(memeObj => {
-    str += `
-    <div class="SavedMemeCanvas">
-        <canvas height="100" width="100" id="${memeObj.specialId}" onload="loadCanvas()"></canvas>
-      </div>
-    `
-  })
+  for (let i = 0; i < SavedMemes.length; i++) {
+    str += `<img src="${SavedMemes[i].url}" width=200 height=200  onclick="onRenderSaved(${i})"> `
+  }
   savedMemeEl.innerHTML = str
-  SavedMemes.forEach(memeObj => {
-    let CurrCanvas = document.querySelector(`#${memeObj.specialId}`)
-    let CurrCtx = CurrCanvas.getContext('2d')
-    let getImg = getMemeById(memeObj.selectedImgId)
-    const img = new Image()
-    img.src = getImg.url
-    img.onload = () => {
-      CurrCtx.drawImage(img, 0, 0, CurrCanvas.width, CurrCanvas.height) //img,x,y,xEnd,yEnd
-    }
-  })
+}
+
+function onRenderSaved(id) {
+  let SavedMemes = loadFromStorage('SavedMemes')
+  let SpecificMeme = SavedMemes[id]
+  document.querySelector('.galleryContainer').classList.add('hidden')
+  document.querySelector('.editorContainer').classList.remove('hidden')
+  document.querySelector('.savedMemesContainer').classList.add('hidden')
+  document.querySelector('.searchHeader').classList.add('hidden')
+  gMeme = SpecificMeme
+  renderMeme(gMeme.selectedImgId)
 }
 
 function drawImgFromlocal(canvasId) {
