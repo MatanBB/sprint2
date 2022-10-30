@@ -263,7 +263,6 @@ function renderSavedMemes() {
 
 function onDeleteSaved(id){
   let SavedMemes = loadFromStorage('SavedMemes')
-  let SpecificMeme = SavedMemes[id]
   SavedMemes.splice(id,1)
   saveToStorage('SavedMemes',SavedMemes)
   OnOpenMemes()
@@ -294,6 +293,7 @@ function OnOpenMemes() {
   document.querySelector('.galleryContainer').classList.add('hidden')
   document.querySelector('.editorContainer').classList.add('hidden')
   document.querySelector('.savedMemesContainer').classList.remove('hidden')
+  document.querySelector('.searchHeader').classList.remove('hidden')
   renderSavedMemes()
 }
 
