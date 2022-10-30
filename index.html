@@ -10,39 +10,63 @@
   <link rel="stylesheet" href="css/main.css">
 </head>
 
-<body class="mainContainer">
-  <div class="secondaryContainer flex-box">
+<body onload="onInit()" class="mainContainer">
+  <container class="secondaryContainer flex-box">
     <header class="mainHeader flex-box">
       <img class="mainLogo" src="/Instructions/DESIGN/LOGO/LOGO.png">
       <nav class="mainNav">
         <ul class="headerList flex-box">
-          <li class="header"><button class="headerBtn">Gallery</button></li>
-          <li class="header"><button class="headerBtn">Memes</button></li>
-          <li class="header"><button class="headerBtn aboutBtn">About</button></li>
+          <li class="header"><button class="headerBtn" onclick="OnOpenGallery()">Gallery</button></li>
+          <li class="header"><button class="headerBtn" onclick="OnOpenMemes()">Memes</button></li>
+          <li class="header"><button class="headerBtn aboutBtn" onclick="OnOpenAbout()">About</button></li>
         </ul>
       </nav>
     </header>
-
-    <container class="galleryContainer grid">
-      <img class="galleryImg" src="Instructions/meme-imgs (square)/1.jpg">
-      <img class="galleryImg" src="Instructions/meme-imgs (square)/2.jpg">
-      <img class="galleryImg" src="Instructions/meme-imgs (square)/3.jpg">
-      <img class="galleryImg" src="Instructions/meme-imgs (square)/4.jpg">
-      <img class="galleryImg" src="Instructions/meme-imgs (square)/5.jpg">
-      <img class="galleryImg" src="Instructions/meme-imgs (square)/6.jpg">
-      <img class="galleryImg" src="Instructions/meme-imgs (square)/7.jpg">
-      <img class="galleryImg" src="Instructions/meme-imgs (square)/8.jpg">
-      <img class="galleryImg" src="Instructions/meme-imgs (square)/9.jpg">
-      <img class="galleryImg" src="Instructions/meme-imgs (square)/10.jpg">
-      <img class="galleryImg" src="Instructions/meme-imgs (square)/11.jpg">
-      <img class="galleryImg" src="Instructions/meme-imgs (square)/12.jpg">
-      <img class="galleryImg" src="Instructions/meme-imgs (square)/13.jpg">
-      <img class="galleryImg" src="Instructions/meme-imgs (square)/14.jpg">
-      <img class="galleryImg" src="Instructions/meme-imgs (square)/15.jpg">
+    <container class="fullGallery">
+      <div class="searchBox">
+      </div>
+      <section class="galleryContainer grid">
+      </section>
     </container>
-  </div>
+    <section class="editorContainer flex-box hidden">
+      <div class="canvasContainer">
+        <canvas height="500" width="500" id="my-canvas"></canvas>
+      </div>
+      <div class="controlBox flex-box">
+        <input id="textInput" placeholder="Input Text Here" oninput="setLineText({txt:this.value,line:0})">
+        <div class="textControls">
+          <input type="color" onchange="setLineColor(this.value)">
+          <button onclick="onEnlargeSize()">F ↑</button>
+          <button onclick="onDecreaseSize()">F ↓</button>
+          <button onclick="onSwitchLine()">F ↑↓</button>
+          <button onclick="onAddLine()">+</button>
+        </div>
+        <div class="fileManipulation">
+          <button class="ManBtn" onclick="onSaveMeme()">Save Meme</button>
+          <button class="ManBtn" onclick="uploadImg()">Share Meme</button>
+          <p class="user-msg"></p>
+          <div class="share-container"></div>
+        </div>
+        <div class="stickers flex-box">
+          <button onclick="addSticker('😍')">😍</button>
+          <button onclick="addSticker('👀')">👀</button>
+          <button onclick="addSticker('👌🏻')">👌🏻</button>
+          <button onclick="addSticker('💍')">💍</button>
+          <button onclick="addSticker('👴🏼')">👴🏼</button>
+          <button onclick="addSticker('🧂')">🧂</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="savedMemesContainer grid hidden">
+      <p>heyo peer wanna come out here</p>
+    </section>
+  </container>
   <script src="js/utils.js" async defer></script>
+  <script src="js/uploadService.js" async defer></script>
   <script src="js/generatorServices.js" async defer></script>
+  <script src="js/galleryController.js" async defer></script>
+  <script src="js/galleryServices.js" async defer></script>
   <script src="js/main.js" async defer></script>
 </body>
 

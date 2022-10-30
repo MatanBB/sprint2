@@ -3,9 +3,15 @@
   src: url('/Fonts/poppins/Poppins-Medium.ttf');
 }
 
+@font-face {
+  font-family: 'impact-large';
+  src: url('/Fonts/Impact-Font/impact.ttf');
+}
+
 * {
   font-family: 'poppins-medium';
   font-size: 16px;
+  box-sizing: border-box;
 }
 
 /*******************HELPERS******************/
@@ -15,11 +21,15 @@
 }
 
 ul {
-  list-style: none
+  list-style: none;
 }
 
-.grid{
+.grid {
   display: grid;
+}
+
+.hidden {
+  display: none;
 }
 
 /****************MAIN CONTAINER**************/
@@ -29,7 +39,23 @@ ul {
   border-radius: 10px;
   background-color: #22252c;
   max-width: 1280px;
-  height: 100vh;
+  height: 90vh;
+}
+
+.stickers button{
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.stickers button:hover{
+  background-color:#2e3239;;
+}
+
+.stickers{
+  border-block: 1px black solid;
+  padding-inline: 5px;
 }
 
 .secondaryContainer {
@@ -71,6 +97,10 @@ ul {
   background-color: #fefefe;
   color: #21ac91;
 }
+.fullGallery{
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .aboutBtn {
   padding-block-start: 4px;
@@ -88,24 +118,87 @@ ul {
 }
 
 .mainHeader .mainLogo {
-  padding-inline-start: 5rem;
+  margin-inline-start: 5rem;
   width: 100px;
   height: 17px;
 }
 
 /*****************GALLERY***************/
+.flexibleBtn{
+  position: relative;
+  top:40px;
+  right: 200px;
+}
+
 .galleryImg {
   width: 200px;
   height: 200px;
+  cursor: pointer;
 }
-.galleryContainer >*:not(:first-child) {
+
+.galleryImg:hover{
+  border: 1px black solid;
+}
+
+.galleryContainer>*:not(:first-child) {
   margin-right: 10px;
 }
 
-.galleryContainer{
+.galleryContainer,.savedMemesContainer {
   margin-top: 3.1rem;
   margin-left: auto;
   margin-right: auto;
-  grid-template:200px 200px 200px 200px 200px/200px 200px 200px 200px 200px ;
+  grid-template: 200px 200px 200px 200px 200px/200px 200px 200px 200px 200px;
   gap: 20px;
+}
+
+/*********************MEME EDITOR************************/
+.editorContainer {
+  margin-top: 1.4rem;
+  margin-left:auto;
+  margin-right:auto;
+}
+
+/*****************controlBox*************/
+.controlBox {
+  padding-top: 80px;
+  text-align: center;
+  border-radius: 1rem;
+  background-color: #606a80;
+  width: 525px;
+  height: 700px;
+  flex-direction: column;
+  align-items: center;
+  margin-left:50px;
+  gap: 30px;
+}
+
+#textInput{
+  width: 60%;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+textarea:focus, input:focus{
+  outline: none;
+}
+
+.controlBox button{
+  cursor: pointer;
+}
+
+/*****************CANVAS**************/
+canvas {
+  display: block;
+  margin: 0 auto;
+  /* outline: 1px solid black; */
+  background-color: white;
+}
+
+.canvasContainer {
+  background-color: #3c3e44;
+  margin: 0 auto;
+  width: 550px;
+  height: 550px;
+  box-shadow: 0 0 4px 1px #2e2f34;
 }
