@@ -293,7 +293,7 @@ function OnOpenMemes() {
   document.querySelector('.galleryContainer').classList.add('hidden')
   document.querySelector('.editorContainer').classList.add('hidden')
   document.querySelector('.savedMemesContainer').classList.remove('hidden')
-  document.querySelector('.searchHeader').classList.remove('hidden')
+  document.querySelector('.searchHeader').classList.add('hidden')
   renderSavedMemes()
 }
 
