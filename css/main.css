@@ -37,6 +37,7 @@ ul {
 }
 
 /****************MAIN CONTAINER**************/
+
 .mainContainer {
   margin-left: auto;
   margin-right: auto;
@@ -46,16 +47,32 @@ ul {
   height: 90vh;
 }
 
+.textControls button{
+  background-color: #22252c;
+  color: white;
+  border: 1px black solid;
+  border-radius: 0.5rem;
+  opacity: 0.8;
+}
+
+.textControls button:hover{
+  opacity: 1;
+}
+
+.colorInput{
+  width: 150px;
+  height: 40px;
+}
+
 .stickers button {
   background-color: transparent;
   border: none;
   cursor: pointer;
-  font-size: 18px;
+  font-size: 20px;
 }
 
 .stickers button:hover {
   background-color: #2e3239;
-  ;
 }
 
 .stickers {
@@ -206,7 +223,7 @@ ul {
   flex-direction: column;
   align-items: center;
   margin-left: 50px;
-  gap: 30px;
+  gap: 40px;
 }
 
 #textInput {
@@ -232,6 +249,20 @@ input:focus {
   scale: 1.3;
   margin: 7px;
 }
+
+.fileManipulation{
+  position: relative;
+  top:220px;
+}
+
+.fileManipulation button{
+  border-radius: 0.5rem;
+  border: 1px solid black;
+  background-color: #22252c;
+  color: rgb(251, 216, 216);
+  cursor: pointer;
+}
+
 /*****************CANVAS**************/
 canvas {
   display: block;
