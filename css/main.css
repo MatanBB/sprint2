@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'poppins-medium';
-  src: url('Fonts/poppins/Poppins-Medium.ttf');
+  src: url('./Fonts/poppins/Poppins-Medium.ttf');
 }
 
 @font-face {
   font-family: 'impact-large';
-  src: url('Fonts/Impact-Font/impact.ttf');
+  src: url('./Fonts/Impact-Font/impact.ttf');
 }
 
 * {
