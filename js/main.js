@@ -22,7 +22,6 @@ function renderSearchWords() {
   let Keywords = Object.entries(gKeywordSearchCountMap)
   let str = ''
   Keywords.forEach(keyword => {
-    console.log(keyword)
     str += `<p onclick="OnEnlargeBtn('${keyword[0]}')" class="searchWord ${keyword[0]}" style=font-size:${10 + keyword[1] * 3}px>${keyword[0]}</p>`
   })
   searchWords.innerHTML = str
@@ -56,9 +55,7 @@ function addTouchListeners() {
 function onDown(ev) {
   gSelectedPiece = getClickedText(ev)
   // gStartPos = gSelectedPiece.pos
-  console.log(gSelectedPiece)
   gStartPos = { x: ev.offsetX, y: ev.offsetY }
-  console.log(gStartPos)
 }
 
 function onMove(ev) {
@@ -236,7 +233,6 @@ function drawRanText(text, x, y) {
 
 function onSaveMeme() {
   let SavedMemes = loadFromStorage('SavedMemes')
-  console.log(SavedMemes)
   if (!SavedMemes || !SavedMemes.length) {
     SavedMemes = [gMeme]
     saveToStorage('SavedMemes', SavedMemes)
@@ -251,7 +247,6 @@ function onSaveMeme() {
 function renderSavedMemes() {
   let savedMemeEl = document.querySelector('.savedMemesContainer')
   let SavedMemes = loadFromStorage('SavedMemes')
-  console.log(SavedMemes)
   let str = ''
   for (let i = 0; i < SavedMemes.length; i++) {
     str += `<div>
