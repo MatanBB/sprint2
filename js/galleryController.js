@@ -14,7 +14,7 @@ function onSelectImg(id, con) {
   document.querySelector('.galleryContainer').classList.add('hidden')
   document.querySelector('.editorContainer').classList.remove('hidden')
   document.querySelector('.savedMemesContainer').classList.add('hidden')
-  document.querySelector('.searchBox').classList.add('hidden')
+  document.querySelector('.searchHeader').classList.add('hidden')
   renderMemeText(id)
   con === 'RandomMeme' ? renderRandomMeme(id) : renderMeme(id)
 }
@@ -33,7 +33,7 @@ function OnOpenGallery() {
   document.querySelector('.galleryContainer').classList.remove('hidden')
   document.querySelector('.editorContainer').classList.add('hidden')
   document.querySelector('.savedMemesContainer').classList.add('hidden')
-  document.querySelector('.searchBox').classList.remove('hidden')
+  document.querySelector('.searchHeader').classList.remove('hidden')
   renderGallery()
 }
 

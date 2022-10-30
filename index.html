@@ -23,7 +23,11 @@
       </nav>
     </header>
     <container class="fullGallery">
-      <div class="searchBox">
+      <div class="searchHeader flex-box">
+        <div class="searchBox">
+        </div>
+        <div class="searchWords flex-box">
+        </div>
       </div>
       <section class="galleryContainer grid">
       </section>
@@ -35,17 +39,12 @@
       <div class="controlBox flex-box">
         <input id="textInput" placeholder="Input Text Here" oninput="setLineText({txt:this.value,line:0})">
         <div class="textControls">
-          <input type="color" onchange="setLineColor(this.value)">
-          <button onclick="onEnlargeSize()">F ↑</button>
-          <button onclick="onDecreaseSize()">F ↓</button>
+          <input class="colorInput" type="color" onchange="setLineColor(this.value)">
+          <button onclick="onEnlargeSize()">A +</button>
+          <button onclick="onDecreaseSize()">A -</button>
           <button onclick="onSwitchLine()">F ↑↓</button>
           <button onclick="onAddLine()">+</button>
-        </div>
-        <div class="fileManipulation">
-          <button class="ManBtn" onclick="onSaveMeme()">Save Meme</button>
-          <button class="ManBtn" onclick="uploadImg()">Share Meme</button>
-          <p class="user-msg"></p>
-          <div class="share-container"></div>
+          <button onclick="onRemoveLine()"><object data="/Svg/trash.svg" width="20" height="20"></object></button>
         </div>
         <div class="stickers flex-box">
           <button onclick="addSticker('😍')">😍</button>
@@ -54,6 +53,12 @@
           <button onclick="addSticker('💍')">💍</button>
           <button onclick="addSticker('👴🏼')">👴🏼</button>
           <button onclick="addSticker('🧂')">🧂</button>
+        </div>
+        <div class="fileManipulation">
+          <button class="ManBtn" onclick="onSaveMeme()">Save Meme</button>
+          <button class="ManBtn" onclick="uploadImg()">Share Meme</button>
+          <p class="user-msg"></p>
+          <div class="share-container"></div>
         </div>
       </div>
     </section>

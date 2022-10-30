@@ -14,6 +14,25 @@ function onInit() {
   renderGallery()
   renderSearchBox()
   addMouseListeners()
+  renderSearchWords()
+}
+
+function renderSearchWords() {
+  let searchWords = document.querySelector('.searchWords')
+  let Keywords = Object.entries(gKeywordSearchCountMap)
+  let str = ''
+  Keywords.forEach(keyword => {
+    console.log(keyword)
+    str += `<p onclick="OnEnlargeBtn('${keyword[0]}')" class="searchWord ${keyword[0]}" style=font-size:${10 + keyword[1] * 3}px>${keyword[0]}</p>`
+  })
+  searchWords.innerHTML = str
+}
+
+function OnEnlargeBtn(keyword) {
+  let txt = document.querySelector(`.${keyword}`)
+  let style = window.getComputedStyle(txt, null).getPropertyValue('font-size');
+  let currentSize = parseFloat(style);
+  txt.style.fontSize = (currentSize + 2) + 'px';
 }
 
 function addMouseListeners() {
@@ -37,20 +56,23 @@ function onDown(ev) {
   gSelectedPiece = getClickedText(ev)
   gStartPos = gSelectedPiece.pos
   console.log(gSelectedPiece)
+  gStartPos = {x:ev.offsetX,y:ev.offsetY}
+  console.log(gStartPos)
 }
 
-function onMove(ev) { 
+function onMove(ev) {
   if (gSelectedPiece === null) return
-  for (let i = 0;i<gMeme.lines.length;i++){
+  for (let i = 0; i < gMeme.lines.length; i++) {
     let line = gMeme.lines[i]
-    if (gSelectedPiece!=null && line.id === gSelectedPiece.id) {
-      line.pos.x = ev.offsetX
+    if (gSelectedPiece != null && line.id === gSelectedPiece.id) {
+      line.pos.x = ev.offsetX 
       line.pos.y = ev.offsetY 
       gMeme.selectedLineIdx = i
       document.querySelector('#textInput').placeholder = line.txt
     }
   }
   renderMeme(gMeme.selectedImgId)
+  /*fontBoundingBoxAscent(height),measureText(line.txt)*/
 }
 
 function onUp() {
@@ -59,8 +81,8 @@ function onUp() {
 
 function getClickedText(loc) {
   for (let i = 0; i < gMeme.lines.length; i++) {
-    if (loc.offsetX > gMeme.lines[i].pos.x && loc.offsetX < (gMeme.lines[i].pos.x + gMeme.lines[i].size*gMeme.lines[i].txt.length ) &&
-    loc.offsetY < gMeme.lines[i].pos.y && loc.offsetY > gMeme.lines[i].pos.y-gMeme.lines[i].size) return gMeme.lines[i]
+    if (loc.offsetX > gMeme.lines[i].pos.x && loc.offsetX < (gMeme.lines[i].pos.x + gMeme.lines[i].size * gMeme.lines[i].txt.length) &&
+      loc.offsetY < gMeme.lines[i].pos.y && loc.offsetY > gMeme.lines[i].pos.y - gMeme.lines[i].size) return gMeme.lines[i]
   }
   return null
 }
@@ -92,7 +114,7 @@ function renderGallery() {
 }
 
 function addSticker(val) {
-  gMeme.lines.push({ id:getRandomId(),txt: val, size: 20, align: 'left', color: 'white', strokeColor: 'black', pos: { x: 100, y: (gElCanvas.height) / 2 } })
+  gMeme.lines.push({ id: getRandomId(), txt: val, size: 20, align: 'left', color: 'white', strokeColor: 'black', pos: { x: 100, y: (gElCanvas.height) / 2 } })
   renderMeme(gMeme.selectedImgId)
   gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
@@ -152,8 +174,13 @@ function setLineColor(val) {
   renderMeme(gMeme.selectedImgId)
 }
 
+function onRemoveLine(){
+  gMeme.lines.splice(gMeme.selectedLineIdx,1)
+  renderMeme(gMeme.selectedImgId)
+}
+
 function onAddLine() {
-  gMeme.lines.push({ id:getRandomId(),txt: 'New Line', size: 20, align: 'left', color: 'white', strokeColor: 'black', pos: { x: 100, y: (gElCanvas.height) / 2 } })
+  gMeme.lines.push({ id: getRandomId(), txt: 'New Line', size: 20, align: 'left', color: 'white', strokeColor: 'black', pos: { x: 100, y: (gElCanvas.height) / 2 } })
   renderMeme(gMeme.selectedImgId)
   gMeme.selectedLineIdx = gMeme.lines.length - 1
 }
@@ -194,8 +221,8 @@ function renderRandomMeme(randomId) {
     gMeme = {
       selectedImgId: randomId,
       selectedLineIdx: 0,
-      lines: [{ id:getRandomId(), txt: line1, size: 20, align: 'left', color: 'white', pos: { x: 20, y: 50 } },
-      { id:getRandomId(), txt: line2, size: 20, align: 'left', color: 'red', pos: { x: 20, y: 450 } }]
+      lines: [{ id: getRandomId(), txt: line1, size: 20, align: 'left', color: 'white', pos: { x: 20, y: 50 } },
+      { id: getRandomId(), txt: line2, size: 20, align: 'left', color: 'red', pos: { x: 20, y: 450 } }]
     }
     drawRanText(line1, 20, 50)
     drawRanText(line2, 20, 450)

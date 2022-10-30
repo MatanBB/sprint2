@@ -32,6 +32,10 @@ ul {
   display: none;
 }
 
+::placeholder {
+  padding: 5px;
+}
+
 /****************MAIN CONTAINER**************/
 .mainContainer {
   margin-left: auto;
@@ -42,18 +46,19 @@ ul {
   height: 90vh;
 }
 
-.stickers button{
+.stickers button {
   background-color: transparent;
   border: none;
   cursor: pointer;
   font-size: 18px;
 }
 
-.stickers button:hover{
-  background-color:#2e3239;;
+.stickers button:hover {
+  background-color: #2e3239;
+  ;
 }
 
-.stickers{
+.stickers {
   border-block: 1px black solid;
   padding-inline: 5px;
 }
@@ -78,6 +83,7 @@ ul {
   background-image: linear-gradient(-86deg, #33be6d 0%, #0c98b9 100%);
   align-items: center;
   justify-content: space-between;
+  margin-bottom: 20px;
 }
 
 .mainHeader .header {
@@ -97,7 +103,8 @@ ul {
   background-color: #fefefe;
   color: #21ac91;
 }
-.fullGallery{
+
+.fullGallery {
   margin-left: auto;
   margin-right: auto;
 }
@@ -123,11 +130,32 @@ ul {
   height: 17px;
 }
 
+/******************SEARCH HEADER*****************/
+.searchHeader {
+  align-items: center;
+}
+
+.searchWords {
+  justify-content: center;
+  background-color: #44464b;
+  border-radius: 1rem;
+  align-items: center;
+  text-align: center;
+  flex-wrap: wrap;
+  width: 500px;
+  padding-inline: 40px;
+}
+
+.searchWord {
+  margin: 7px;
+  text-decoration: underline;
+}
+
 /*****************GALLERY***************/
-.flexibleBtn{
+.flexibleBtn {
   position: relative;
-  top:40px;
-  right: 200px;
+  top: 40px;
+  right: 230px;
 }
 
 .galleryImg {
@@ -136,7 +164,7 @@ ul {
   cursor: pointer;
 }
 
-.galleryImg:hover{
+.galleryImg:hover {
   border: 1px black solid;
 }
 
@@ -144,7 +172,8 @@ ul {
   margin-right: 10px;
 }
 
-.galleryContainer,.savedMemesContainer {
+.galleryContainer,
+.savedMemesContainer {
   margin-top: 3.1rem;
   margin-left: auto;
   margin-right: auto;
@@ -155,8 +184,8 @@ ul {
 /*********************MEME EDITOR************************/
 .editorContainer {
   margin-top: 1.4rem;
-  margin-left:auto;
-  margin-right:auto;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /*****************controlBox*************/
@@ -169,24 +198,33 @@ ul {
   height: 700px;
   flex-direction: column;
   align-items: center;
-  margin-left:50px;
+  margin-left: 50px;
   gap: 30px;
 }
 
-#textInput{
+#textInput {
   width: 60%;
   border-radius: 5px;
   border: 1px solid black;
 }
 
-textarea:focus, input:focus{
+textarea:focus,
+input:focus {
   outline: none;
 }
 
-.controlBox button{
+.controlBox .textControls button {
   cursor: pointer;
+  margin: 7px;
+  width: 70px;
+  height: 50px;
+  font-size: 20px;
 }
 
+.colorInput{
+  scale: 1.3;
+  margin: 7px;
+}
 /*****************CANVAS**************/
 canvas {
   display: block;
