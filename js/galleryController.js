@@ -25,8 +25,8 @@ function renderMemeText(id) {
     selectedImgId: id,
     selectedLineIdx: 0,
     url:gImgs[id-1].url,
-    lines: [{ id:getRandomId(), txt: selectedImg.lines.one, size: 20, align: 'left', color: 'white', strokeColor: 'black', pos: { x: 100, y: 50 } },
-    { id:getRandomId(), txt: selectedImg.lines.two, size: 20, align: 'left', color: 'white', strokeColor: 'black', pos: { x: 100, y: 450 } }]
+    lines: [{ id:getRandomId(), txt: selectedImg.lines.one, size: 30, align: 'left', color: 'white', strokeColor: 'black', pos: { x: 100, y: 50 } },
+    { id:getRandomId(), txt: selectedImg.lines.two, size: 30, align: 'left', color: 'white', strokeColor: 'black', pos: { x: 100, y: 450 } }]
   }
 }
 

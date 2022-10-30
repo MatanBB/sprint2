@@ -170,7 +170,7 @@ function onRemoveLine() {
 }
 
 function onAddLine() {
-  gMeme.lines.push({ id: getRandomId(), txt: 'New Line', size: 20, align: 'left', color: 'white', strokeColor: 'black', pos: { x: 100, y: (gElCanvas.height) / 2 } })
+  gMeme.lines.push({ id: getRandomId(), txt: 'New Line', size: 30, align: 'left', color: 'white', strokeColor: 'black', pos: { x: 100, y: (gElCanvas.height) / 2 } })
   renderMeme(gMeme.selectedImgId)
   gMeme.selectedLineIdx = gMeme.lines.length - 1
 }

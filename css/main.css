@@ -47,39 +47,6 @@ ul {
   height: 90vh;
 }
 
-.textControls button{
-  background-color: #22252c;
-  color: white;
-  border: 1px black solid;
-  border-radius: 0.5rem;
-  opacity: 0.8;
-}
-
-.textControls button:hover{
-  opacity: 1;
-}
-
-.colorInput{
-  width: 150px;
-  height: 40px;
-}
-
-.stickers button {
-  background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-.stickers button:hover {
-  background-color: #2e3239;
-}
-
-.stickers {
-  border-block: 1px black solid;
-  padding-inline: 5px;
-}
-
 .secondaryContainer {
   margin-left: auto;
   margin-right: auto;
@@ -226,6 +193,40 @@ ul {
   gap: 40px;
 }
 
+.textControls button{
+  background-color: #22252c;
+  color: white;
+  border: 1px black solid;
+  border-radius: 0.5rem;
+  opacity: 0.8;
+}
+
+.textControls button:hover{
+  opacity: 1;
+}
+
+.colorInput{
+  width: 150px;
+  height: 40px;
+}
+
+.stickers button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 20px;
+  width: 40px;
+}
+
+.stickers button:hover {
+  background-color: #2e3239;
+}
+
+.stickers {
+  border-block: 1px black solid;
+  padding-inline: 5px;
+}
+
 #textInput {
   width: 60%;
   border-radius: 5px;
@@ -261,6 +262,11 @@ input:focus {
   background-color: #22252c;
   color: rgb(251, 216, 216);
   cursor: pointer;
+  opacity: 0.7;
+}
+
+.fileManipulation button:hover{
+  opacity: 1;
 }
 
 /*****************CANVAS**************/
