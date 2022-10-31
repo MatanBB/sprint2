@@ -79,8 +79,13 @@ function onUp() {
 
 function getClickedText(loc) {
   for (let i = 0; i < gMeme.lines.length; i++) {
-    if (loc.offsetX > gMeme.lines[i].pos.x && loc.offsetX < (gMeme.lines[i].pos.x + gMeme.lines[i].size * gMeme.lines[i].txt.length) &&
-      loc.offsetY < gMeme.lines[i].pos.y && loc.offsetY > gMeme.lines[i].pos.y - gMeme.lines[i].size) return gMeme.lines[i]
+    if (loc.offsetX > gMeme.lines[i].pos.x && loc.offsetX < (gMeme.lines[i].pos.x + gCtx.measureText(gMeme.lines[i].txt).width) &&
+      loc.offsetY < gMeme.lines[i].pos.y && loc.offsetY > gMeme.lines[i].pos.y - gMeme.lines[i].size) {
+      gCtx.beginPath()
+      gCtx.rect(gMeme.lines[i].pos.x-3, gMeme.lines[i].pos.y+7, gCtx.measureText(gMeme.lines[i].txt).width+6, -gMeme.lines[i].size-10);
+      gCtx.stroke();
+      return gMeme.lines[i]
+    }
   }
   return null
 }
