@@ -93,7 +93,9 @@ function getClickedText(loc) {
 
 function getMemesToDisplay() {
   let imgs = gImgs
-  if (gSearch) imgs = imgs.filter(img => img.keywords[0].toLowerCase().includes(gSearch.toLowerCase()))
+  if (gSearch) imgs = imgs.filter(img => img.keywords.find(keyword =>{
+    if (keyword.toLowerCase().includes(gSearch.toLowerCase())) return keyword
+  }))
   return imgs
 }
 
