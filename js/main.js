@@ -3,7 +3,7 @@ let gCtx
 let gElCanvas
 let gSavedMemes
 var gKeywordSearchCountMap = categoryMaps()
-let gSearch = ''
+let gSearch
 let gSelectedPiece = null
 let gStartPos
 
