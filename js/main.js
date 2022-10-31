@@ -66,8 +66,6 @@ function onMove(ev) {
     if (gSelectedPiece != null && line.id === gSelectedPiece.id) {
       line.pos.x = ev.offsetX
       line.pos.y = ev.offsetY
-      gMeme.selectedLineIdx = i
-      document.querySelector('#textInput').placeholder = line.txt
     }
   }
   renderMeme(gMeme.selectedImgId)
@@ -85,6 +83,8 @@ function getClickedText(loc) {
       gCtx.beginPath()
       gCtx.rect(gMeme.lines[i].pos.x-3, gMeme.lines[i].pos.y+7, gCtx.measureText(gMeme.lines[i].txt).width+6, -gMeme.lines[i].size-10);
       gCtx.stroke();
+      gMeme.selectedLineIdx = i
+      document.querySelector('#textInput').placeholder = gMeme.lines[i].txt
       return gMeme.lines[i]
     }
   }
