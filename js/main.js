@@ -211,7 +211,7 @@ function renderRandomMeme(randomId) {
   gMeme.selectedImgId = randomId
   let selectedImg = getMemeById(randomId)
   const img = new Image()
-  img.src = 'https://ca-upload.com/here/serveForShare.php?id=635ba62f0f692'/*selectedImg.url*/
+  img.src = selectedImg.url
   img.onload = () => {
     gCtx.drawImage(img, 0, 0, gElCanvas.width, gElCanvas.height)
     const line1 = getRandomSentence()
@@ -226,7 +226,6 @@ function renderRandomMeme(randomId) {
     drawRanText(line2, 20, 450)
   }
 }
-
 function drawRanText(text, x, y) {
   gCtx.lineWidth = 1
   gCtx.strokeStyle = getRandomColor()
