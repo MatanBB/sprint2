@@ -31,8 +31,9 @@ function OnEnlargeBtn(keyword) {
   let txt = document.querySelector(`.${keyword}`)
   let style = window.getComputedStyle(txt, null).getPropertyValue('font-size');
   let currentSize = parseFloat(style);
-  if(currentSize > 30) return
+  if (currentSize > 30) return
   txt.style.fontSize = (currentSize + 2) + 'px';
+  OnSearch(keyword)
 }
 
 function addMouseListeners() {
